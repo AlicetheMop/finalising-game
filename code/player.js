@@ -120,7 +120,7 @@ class Player {
     A = 65
     S = 83
     D = 68
-    shift = 16
+    E = 69
     Spacebar = 32
     */
     
@@ -130,7 +130,7 @@ class Player {
     if (keyIsDown(68)) {
       this.vel.x = 4; //player has a velocity right
     }
-    if (keyIsDown(16) && !this.justDashed) { //16 is the key code for left shift 
+    if (keyIsDown(69) && !this.justDashed) { //16 is the key code for left shift 
       this.dash()
       console.log("dash")
     }

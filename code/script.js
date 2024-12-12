@@ -5,6 +5,7 @@ displays the the main and sub menus and allows for relaying.
 let started = false;
 let dead = false;
 let controls = false;
+let score = 0;
 let enemies = [];
 let effects = [];
 let bullets = [];
@@ -17,6 +18,8 @@ function setup() {
   player = new Player(); //initiaties a new player object
   platform = new platforms();
   bullets = [];
+  enemies = [];
+  score = 0;
   for (let i = 0; i < ((1 + Math.round(Math.random() * 10))) * (width / 1400); i++) {  //spawns a random number of enemies depending on the size of the window
     let agEnSpeed = Math.round(Math.random(1, 2) * 10); //randomly sets the speed of the aggressive enemies
     let enemyTypes = Math.round(Math.random(0,10) * 10); //randomly sets the number of aggressive enemies vs normal enemies
@@ -37,6 +40,8 @@ function draw() {
     textSize(32);
     background(100,100,100);
     rectMode(CORNER);  
+    fill("black")
+    text("SCORE: " + score, width/2, height/2 - 50);
     //display click to start button
     if(mouseX > width/2 - 125 && mouseX < width/2 + 125 && mouseY > height/2 - 35 && mouseY < height/2 + 15){ //checks if the mouse is over the button
       textAlign(CENTER); //if the mouse is hovering over the button the colours invert
@@ -113,7 +118,7 @@ function draw() {
     text("D = Move Right", width / 2, height / 2 + 135);
     text("W = Jump", width / 2, height / 2 + 200);
     text("S = Slow Fall", width / 2, height / 2 + 255);
-    text("Shift = Dash", width / 2, height / 2 + 315);
+    text("E = Dash", width / 2, height / 2 + 315);
     text("LMB = Attack", width / 2, height / 2 + 375);
     if (!mouseIsPressed) {
       releaseMouse = true; //resets the mouse release variabel when the mouse is released
